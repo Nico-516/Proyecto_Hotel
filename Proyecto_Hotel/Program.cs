@@ -6,20 +6,17 @@ namespace Proyecto_Hotel
     {
         static void Main(string[] args)
         {
-            int opcionMenu = 0, habitacion = 0, dias = 0, claseSeleccion = 0, precio = 0;
+            double precio = 0;
+            int opcionMenu = 0, habitacion = 0, dias = 0, claseSeleccion = 0;
             string nombre = "", claseHabitacion = "";
             
-            Console.WriteLine("Este programa sirve para manejar las reservas de habitaciones en un hotel");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("BIENVENIDO AL GESTOR DE HOTEL");
+            Console.ResetColor();
             
             do
             {
-                Console.WriteLine("Menu");
-                Console.WriteLine("1 - Consultar precios");
-                Console.WriteLine("2 - Consultar habitaciones disponibles");
-                Console.WriteLine("3 - Reservar una habitacion");
-                Console.WriteLine("4 - Modificar / Cancelar una reserva");
-                Console.WriteLine("5 - Ver datos ingresados ");
-                Console.WriteLine("0 - Salir de la aplicacion");
+                menuInicio();
                 opcionMenu = int.Parse(Console.ReadLine());
 
                 Console.Clear();
@@ -31,6 +28,8 @@ namespace Proyecto_Hotel
                         Console.WriteLine("La habitacion Economica esta a $1000 por dia.\n Incluye estadia y servicio a la habitacion\n");
                         Console.WriteLine("La habitacion Estandar esta a $2500 por dia.\n Incluye estadia, servicio a la habitacion y un descuento del 50% del desayuno\n");
                         Console.WriteLine("La habitacion Deluxe esta a $5000 por dia.\n Incluye estadia, servicio a la habitacion, desayuno gratis y prioridad a la hora de brindar servicos\n");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                     case 2:
                         Console.WriteLine("Las habitaciones disponibles son:\n 1\n 2\n 3");
@@ -107,6 +106,10 @@ namespace Proyecto_Hotel
 
                             break;
                     case 4:
+                        Console.WriteLine("Usted a seleccionado la opcion de :'Modificar / Cancelar una reserva'...");
+                        Console.Write("Presione una tecla...");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                     case 5:
                         Console.WriteLine("Nombre: " + nombre);
@@ -116,6 +119,16 @@ namespace Proyecto_Hotel
                         Console.WriteLine("Habitacion: " + habitacion);
                         break;
                     case 0:
+                        Console.Write("Esta seguro que desea salir? (si / no): ");
+                        string salir = Console.ReadLine();
+                        if (salir == "si")
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            opcionMenu = 1;
+                        }
                         break;
                     default:
                         Console.WriteLine("Ingrese un numero valido");
@@ -126,6 +139,27 @@ namespace Proyecto_Hotel
             } while (opcionMenu != 0);
 
             
+        }
+        
+        static void menuInicio()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            string bordeHorizontal = new string('═', 50);
+            Console.WriteLine("╔" + bordeHorizontal + "╗");
+            Console.WriteLine("║                 MENU PRINCIPAL                   ║");
+            Console.WriteLine("╠" + bordeHorizontal + "╣");
+
+            Console.WriteLine("║ 1) Consultar precios                             ║");
+            Console.WriteLine("║ 2) Consultar habitaciones disponibles            ║");
+            Console.WriteLine("║ 3) Reservar una habitacion                       ║");
+            Console.WriteLine("║ 4) Modificar / Cancelar una reserva              ║");
+            Console.WriteLine("║ 5) Ver datos ingresados                          ║");
+            Console.WriteLine("║ 0) Salir de la aplicacion                        ║");
+            Console.WriteLine("╚" + bordeHorizontal + "╝");
+
+            Console.ResetColor();
+            Console.Write("Ingrese la opcion que desea utilizar: ");
+
         }
     }
 }
