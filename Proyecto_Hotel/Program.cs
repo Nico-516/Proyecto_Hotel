@@ -33,6 +33,8 @@ namespace Proyecto_Hotel
                         break;
                     case 2:
                         Console.WriteLine("Las habitaciones disponibles son:\n 1\n 2\n 3");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                     case 3:
                         Console.WriteLine("Reserva");
@@ -40,9 +42,9 @@ namespace Proyecto_Hotel
                         for (int contadorClase = 0; contadorClase < 1;)
                         {
                             Console.WriteLine("Ingrese el numero de la clase de habitacion que desea reservar: ");
-                            Console.WriteLine("1 - Clase Economica");
-                            Console.WriteLine("2 - Clase Estandar");
-                            Console.WriteLine("3 - Clase Deluxe");
+                            Console.WriteLine("1) Clase Economica");
+                            Console.WriteLine("2) Clase Estandar");
+                            Console.WriteLine("3) Clase Deluxe");
                             claseSeleccion = int.Parse(Console.ReadLine());
 
                             if (claseSeleccion == 1)
@@ -79,9 +81,10 @@ namespace Proyecto_Hotel
                             }
                             else
                             {
-                                Console.WriteLine("Las habitaciones disponibles son:\n 1\n 2\n 3");
+                                Console.WriteLine($"La habitacion {habitacion} esta ocupada. Las habitaciones disponibles son:\n 1\n 2\n 3");
                             }
                         }
+                        Console.Clear();
 
                         Console.Write("Ingrese su nombre: ");
                         nombre = Console.ReadLine();
@@ -104,10 +107,13 @@ namespace Proyecto_Hotel
                             precio = dias * 5000;
                         }
 
-                            break;
+                        Console.WriteLine($"Usted a reservado su habitacion con exito.\nLe corresponde la habitacion {habitacion}.\nEl precio final es de ${precio}.\nDisfrute de la estadia Senior/a {nombre}");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
                     case 4:
-                        Console.WriteLine("Usted a seleccionado la opcion de :'Modificar / Cancelar una reserva'...");
-                        Console.Write("Presione una tecla...");
+                        Console.WriteLine("Usted a seleccionado la opcion de :'Modificar / Cancelar una reserva'...\nEsta funcion estara disponible proximamente.");
+                        Console.Write("Presione una tecla para volver al menu...");
                         Console.ReadLine();
                         Console.Clear();
                         break;
@@ -115,7 +121,7 @@ namespace Proyecto_Hotel
                         Console.WriteLine("Nombre: " + nombre);
                         Console.WriteLine("Dias: " + dias);
                         Console.WriteLine("Clase: " + claseHabitacion);
-                        Console.WriteLine("Precio: " + precio);
+                        Console.WriteLine("Precio: $" + precio);
                         Console.WriteLine("Habitacion: " + habitacion);
                         break;
                     case 0:
